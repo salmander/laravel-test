@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {!! Form::open(['url' => 'articles']) !!}
+    {!! Form::open(['url' => '']) !!}
 
     <div class="form-group">
         {!! Form::label('title', 'Title:') !!}
@@ -25,4 +25,12 @@
 
     {!! Form::close() !!}
 
+    {{-- Display errors --}}
+    @if ($errors->any())
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 @stop

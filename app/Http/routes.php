@@ -14,7 +14,7 @@
 Route::get('/', 'ArticlesController@index');
 Route::get('articles/create', 'ArticlesController@create');
 Route::get('articles/{id}', 'ArticlesController@show');
-Route::post('articles', 'ArticlesController@store');
+Route::post('/', 'ArticlesController@store');
 
 // Static pages controller
 Route::get('about', 'PagesController@about');
