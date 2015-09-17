@@ -11,10 +11,12 @@
 |
 */
 // Default route to articles
-Route::get('/', 'ArticlesController@index');
-Route::get('articles/create', 'ArticlesController@create');
-Route::get('articles/{id}', 'ArticlesController@show');
-Route::post('/', 'ArticlesController@store');
+//Route::get('/', 'ArticlesController@index');
+//Route::get('articles/create', 'ArticlesController@create');
+//Route::get('articles/{id}', 'ArticlesController@show');
+//Route::post('/', 'ArticlesController@store');
+
+Route::resource('articles', 'ArticlesController');
 
 // Static pages controller
 Route::get('about', 'PagesController@about');
