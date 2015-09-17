@@ -6,7 +6,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Http\Requests\ArticleRequest;
-use Request;
 
 class ArticlesController extends Controller
 {
