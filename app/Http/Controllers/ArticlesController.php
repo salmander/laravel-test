@@ -20,9 +20,7 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
 
-        //dd($article->published_at->diffForHumans());
-
-        return $article;
+        return view('articles.view', ['article' => $article]);
     }
 
     public function create()
