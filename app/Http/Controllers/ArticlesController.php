@@ -36,11 +36,11 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        // Add user_id to the request object
-        $request['user_id'] = \Auth::user()->id;
+        // Create a new instance of Article object and fill it with $request object/values
+        $article = new Article($request->all());
 
-        // Save request to the database.
-        Article::create($request->all());
+        \Auth::user()->articles() // Get articles for this user (this establishes a relationship)
+            ->save($article); // Save the $article object with user_id
 
         return redirect('articles/');
     }
