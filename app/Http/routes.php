@@ -21,3 +21,9 @@ Route::resource('articles', 'ArticlesController');
 // Static pages controller
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
+
+// Authentication
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
