@@ -9,6 +9,12 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['create', 'edit']]);
+    }
+
+
     public function index()
     {
         $articles = Article::latest('published_at')->published()->get();
@@ -30,6 +36,10 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
+        // Add user_id to the request object
+        $request['user_id'] = \Auth::user()->id;
+
+        // Save request to the database.
         Article::create($request->all());
 
         return redirect('articles/');
