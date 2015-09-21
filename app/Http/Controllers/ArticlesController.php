@@ -22,10 +22,8 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles'));
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
-
         return view('articles.view', ['article' => $article]);
     }
 
@@ -45,20 +43,15 @@ class ArticlesController extends Controller
         return redirect('articles/');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::find($id);
-
-
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request)
+    public function update(Article $article, ArticleRequest $request)
     {
-        $article = Article::find($id);
-
         $article->update($request->all());
 
-        return redirect('articles/'. $id);
+        return redirect('articles/'. $article->id);
     }
 }

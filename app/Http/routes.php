@@ -27,3 +27,10 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+// Admin section (testing middleware)
+Route::get('admin', 'AdminController@index');
+
+Route::get('/', function() {
+    return redirect('articles');
+});
